@@ -1,0 +1,5 @@
+D:\C#\TH4\Builds\Bai4\Bai4.exe
+D:\C#\TH4\Builds\Bai4\Bai4.dll
+D:\C#\TH4\Builds\Bai4\Bai4.deps.json
+D:\C#\TH4\Builds\Bai4\Bai4.runtimeconfig.json
+D:\C#\TH4\Builds\Bai4\Bai4.pdb

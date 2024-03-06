@@ -1,0 +1,16 @@
+D:\C#\TH4\Solutions\Bai3\Bai3\bin\Debug\net8.0-windows\Bai3.exe
+D:\C#\TH4\Solutions\Bai3\Bai3\bin\Debug\net8.0-windows\Bai3.deps.json
+D:\C#\TH4\Solutions\Bai3\Bai3\bin\Debug\net8.0-windows\Bai3.runtimeconfig.json
+D:\C#\TH4\Solutions\Bai3\Bai3\bin\Debug\net8.0-windows\Bai3.dll
+D:\C#\TH4\Solutions\Bai3\Bai3\bin\Debug\net8.0-windows\Bai3.pdb
+D:\C#\TH4\Solutions\Bai3\Bai3\obj\Debug\net8.0-windows\Bai3.Form1.resources
+D:\C#\TH4\Solutions\Bai3\Bai3\obj\Debug\net8.0-windows\Bai3.csproj.GenerateResource.cache
+D:\C#\TH4\Solutions\Bai3\Bai3\obj\Debug\net8.0-windows\Bai3.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\TH4\Solutions\Bai3\Bai3\obj\Debug\net8.0-windows\Bai3.AssemblyInfoInputs.cache
+D:\C#\TH4\Solutions\Bai3\Bai3\obj\Debug\net8.0-windows\Bai3.AssemblyInfo.cs
+D:\C#\TH4\Solutions\Bai3\Bai3\obj\Debug\net8.0-windows\Bai3.csproj.CoreCompileInputs.cache
+D:\C#\TH4\Solutions\Bai3\Bai3\obj\Debug\net8.0-windows\Bai3.dll
+D:\C#\TH4\Solutions\Bai3\Bai3\obj\Debug\net8.0-windows\refint\Bai3.dll
+D:\C#\TH4\Solutions\Bai3\Bai3\obj\Debug\net8.0-windows\Bai3.pdb
+D:\C#\TH4\Solutions\Bai3\Bai3\obj\Debug\net8.0-windows\Bai3.genruntimeconfig.cache
+D:\C#\TH4\Solutions\Bai3\Bai3\obj\Debug\net8.0-windows\ref\Bai3.dll
