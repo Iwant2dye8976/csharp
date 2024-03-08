@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C#\\TH4\\Bai1\\Bai1.csproj": {}
+    "D:\\C#\\TH4\\Solutions\\Bai1\\Bai1.csproj": {}
   },
   "projects": {
-    "D:\\C#\\TH4\\Bai1\\Bai1.csproj": {
+    "D:\\C#\\TH4\\Solutions\\Bai1\\Bai1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#\\TH4\\Bai1\\Bai1.csproj",
+        "projectUniqueName": "D:\\C#\\TH4\\Solutions\\Bai1\\Bai1.csproj",
         "projectName": "Bai1",
-        "projectPath": "D:\\C#\\TH4\\Bai1\\Bai1.csproj",
+        "projectPath": "D:\\C#\\TH4\\Solutions\\Bai1\\Bai1.csproj",
         "packagesPath": "C:\\Users\\xuanb\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\TH4\\Bai1\\obj\\",
+        "outputPath": "D:\\C#\\TH4\\Solutions\\Bai1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\xuanb\\AppData\\Roaming\\NuGet\\NuGet.Config",
