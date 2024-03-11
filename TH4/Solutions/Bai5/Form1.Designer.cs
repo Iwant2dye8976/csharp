@@ -28,191 +28,190 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            lbla = new Label();
-            lblb = new Label();
-            lblc = new Label();
-            txtBa = new TextBox();
-            txtBb = new TextBox();
-            txtBc = new TextBox();
-            btnGiai = new Button();
-            btnXoa = new Button();
-            lblTitle = new Label();
-            ctxtMenuEdit = new ContextMenuStrip(components);
-            tsmDoiMau = new ToolStripMenuItem();
-            tsmDoiFont = new ToolStripMenuItem();
-            lblNghiem = new Label();
-            ctxtMenuEdit.SuspendLayout();
+            label1 = new Label();
+            gbChucNang = new GroupBox();
+            btnThoat = new Button();
+            btnTraMay = new Button();
+            btnLamMoi = new Button();
+            btnDatMay = new Button();
+            gbDanhSachMay = new GroupBox();
+            lvDanhsachMay = new ListView();
+            chSomay = new ColumnHeader();
+            chTrangthai = new ColumnHeader();
+            chBatDau = new ColumnHeader();
+            chSuDung = new ColumnHeader();
+            chThanhtien = new ColumnHeader();
+            lbGia = new Label();
+            gbChucNang.SuspendLayout();
+            gbDanhSachMay.SuspendLayout();
             SuspendLayout();
             // 
-            // lbla
+            // label1
             // 
-            lbla.AutoSize = true;
-            lbla.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lbla.Location = new Point(32, 129);
-            lbla.Name = "lbla";
-            lbla.Size = new Size(34, 21);
-            lbla.TabIndex = 0;
-            lbla.Text = "a =";
-            lbla.MouseClick += txtBa_MouseClick;
+            label1.Anchor = AnchorStyles.None;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.HotTrack;
+            label1.Location = new Point(267, 31);
+            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(476, 37);
+            label1.TabIndex = 0;
+            label1.Text = "QUẢN LÝ QUÁN HỌC THÊM GAMING";
             // 
-            // lblb
+            // gbChucNang
             // 
-            lblb.AutoSize = true;
-            lblb.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblb.Location = new Point(32, 161);
-            lblb.Name = "lblb";
-            lblb.Size = new Size(35, 21);
-            lblb.TabIndex = 1;
-            lblb.Text = "b =";
-            lblb.MouseClick += txtBa_MouseClick;
+            gbChucNang.Anchor = AnchorStyles.None;
+            gbChucNang.Controls.Add(btnThoat);
+            gbChucNang.Controls.Add(btnTraMay);
+            gbChucNang.Controls.Add(btnLamMoi);
+            gbChucNang.Controls.Add(btnDatMay);
+            gbChucNang.Location = new Point(525, 624);
+            gbChucNang.Name = "gbChucNang";
+            gbChucNang.Size = new Size(447, 45);
+            gbChucNang.TabIndex = 1;
+            gbChucNang.TabStop = false;
             // 
-            // lblc
+            // btnThoat
             // 
-            lblc.AutoSize = true;
-            lblc.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblc.Location = new Point(32, 194);
-            lblc.Name = "lblc";
-            lblc.Size = new Size(33, 21);
-            lblc.TabIndex = 2;
-            lblc.Text = "c =";
-            lblc.MouseClick += txtBa_MouseClick;
+            btnThoat.BackColor = SystemColors.ScrollBar;
+            btnThoat.Location = new Point(337, 0);
+            btnThoat.Name = "btnThoat";
+            btnThoat.Size = new Size(104, 43);
+            btnThoat.TabIndex = 3;
+            btnThoat.Text = "Thoát";
+            btnThoat.UseVisualStyleBackColor = false;
+            btnThoat.Click += btnThoat_Click;
             // 
-            // txtBa
+            // btnTraMay
             // 
-            txtBa.BackColor = Color.Wheat;
-            txtBa.Font = new Font("Segoe UI", 12F);
-            txtBa.Location = new Point(108, 121);
-            txtBa.Name = "txtBa";
-            txtBa.Size = new Size(152, 29);
-            txtBa.TabIndex = 3;
-            txtBa.MouseClick += txtBa_MouseClick;
+            btnTraMay.BackColor = SystemColors.ScrollBar;
+            btnTraMay.Location = new Point(227, 0);
+            btnTraMay.Name = "btnTraMay";
+            btnTraMay.Size = new Size(104, 43);
+            btnTraMay.TabIndex = 2;
+            btnTraMay.Text = "Trả máy";
+            btnTraMay.UseVisualStyleBackColor = false;
+            btnTraMay.Click += btnTraMay_Click;
             // 
-            // txtBb
+            // btnLamMoi
             // 
-            txtBb.BackColor = Color.Wheat;
-            txtBb.Font = new Font("Segoe UI", 12F);
-            txtBb.Location = new Point(108, 153);
-            txtBb.Name = "txtBb";
-            txtBb.Size = new Size(152, 29);
-            txtBb.TabIndex = 4;
-            txtBb.MouseClick += txtBa_MouseClick;
+            btnLamMoi.BackColor = SystemColors.ScrollBar;
+            btnLamMoi.Location = new Point(116, 0);
+            btnLamMoi.Name = "btnLamMoi";
+            btnLamMoi.Size = new Size(104, 43);
+            btnLamMoi.TabIndex = 1;
+            btnLamMoi.Text = "Làm mới";
+            btnLamMoi.UseVisualStyleBackColor = false;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
-            // txtBc
+            // btnDatMay
             // 
-            txtBc.BackColor = Color.Wheat;
-            txtBc.Font = new Font("Segoe UI", 12F);
-            txtBc.Location = new Point(108, 186);
-            txtBc.Name = "txtBc";
-            txtBc.Size = new Size(152, 29);
-            txtBc.TabIndex = 5;
-            txtBc.MouseClick += txtBa_MouseClick;
+            btnDatMay.BackColor = SystemColors.ScrollBar;
+            btnDatMay.Location = new Point(6, 0);
+            btnDatMay.Name = "btnDatMay";
+            btnDatMay.Size = new Size(104, 43);
+            btnDatMay.TabIndex = 0;
+            btnDatMay.Text = "Đặt máy";
+            btnDatMay.UseVisualStyleBackColor = false;
+            btnDatMay.Click += btnDatMay_Click;
             // 
-            // btnGiai
+            // gbDanhSachMay
             // 
-            btnGiai.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnGiai.Location = new Point(319, 121);
-            btnGiai.Name = "btnGiai";
-            btnGiai.Size = new Size(96, 52);
-            btnGiai.TabIndex = 6;
-            btnGiai.Text = "Giải";
-            btnGiai.UseVisualStyleBackColor = true;
-            btnGiai.Click += btnGiai_Click;
-            btnGiai.MouseClick += txtBa_MouseClick;
+            gbDanhSachMay.Anchor = AnchorStyles.None;
+            gbDanhSachMay.Controls.Add(lvDanhsachMay);
+            gbDanhSachMay.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            gbDanhSachMay.Location = new Point(12, 93);
+            gbDanhSachMay.Name = "gbDanhSachMay";
+            gbDanhSachMay.Size = new Size(960, 525);
+            gbDanhSachMay.TabIndex = 2;
+            gbDanhSachMay.TabStop = false;
+            gbDanhSachMay.Text = "Danh sách máy";
             // 
-            // btnXoa
+            // lvDanhsachMay
             // 
-            btnXoa.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnXoa.Location = new Point(319, 186);
-            btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(96, 30);
-            btnXoa.TabIndex = 7;
-            btnXoa.Text = "Xóa";
-            btnXoa.UseVisualStyleBackColor = true;
-            btnXoa.Click += btnXoa_Click;
-            btnXoa.MouseClick += txtBa_MouseClick;
+            lvDanhsachMay.BorderStyle = BorderStyle.FixedSingle;
+            lvDanhsachMay.Columns.AddRange(new ColumnHeader[] { chSomay, chTrangthai, chBatDau, chSuDung, chThanhtien });
+            lvDanhsachMay.FullRowSelect = true;
+            lvDanhsachMay.GridLines = true;
+            lvDanhsachMay.Location = new Point(6, 32);
+            lvDanhsachMay.Name = "lvDanhsachMay";
+            lvDanhsachMay.Size = new Size(948, 480);
+            lvDanhsachMay.TabIndex = 0;
+            lvDanhsachMay.UseCompatibleStateImageBehavior = false;
+            lvDanhsachMay.View = View.Details;
             // 
-            // lblTitle
+            // chSomay
             // 
-            lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.Location = new Point(91, 75);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(333, 25);
-            lblTitle.TabIndex = 8;
-            lblTitle.Text = "Giải phương trình ax^2 + bx + c = 0";
-            lblTitle.MouseClick += txtBa_MouseClick;
+            chSomay.Text = "Số máy";
+            chSomay.Width = 80;
             // 
-            // ctxtMenuEdit
+            // chTrangthai
             // 
-            ctxtMenuEdit.BackColor = SystemColors.Control;
-            ctxtMenuEdit.Items.AddRange(new ToolStripItem[] { tsmDoiMau, tsmDoiFont });
-            ctxtMenuEdit.Name = "ctxtMenuEdit";
-            ctxtMenuEdit.Size = new Size(120, 48);
-            ctxtMenuEdit.Opening += ctxtMenuEdit_Opening;
+            chTrangthai.Text = "Trạng thái";
+            chTrangthai.Width = 120;
             // 
-            // tsmDoiMau
+            // chBatDau
             // 
-            tsmDoiMau.Name = "tsmDoiMau";
-            tsmDoiMau.Size = new Size(119, 22);
-            tsmDoiMau.Text = "Đổi màu";
-            tsmDoiMau.Click += tsmDoiMau_Click;
+            chBatDau.Text = "Bắt đầu";
+            chBatDau.Width = 220;
             // 
-            // tsmDoiFont
+            // chSuDung
             // 
-            tsmDoiFont.Name = "tsmDoiFont";
-            tsmDoiFont.Size = new Size(119, 22);
-            tsmDoiFont.Text = "Đổi font";
-            tsmDoiFont.Click += tsmDoiFont_Click;
+            chSuDung.Text = "Thời gian sử dụng(phút)";
+            chSuDung.TextAlign = HorizontalAlignment.Center;
+            chSuDung.Width = 220;
             // 
-            // lblNghiem
+            // chThanhtien
             // 
-            lblNghiem.AutoSize = true;
-            lblNghiem.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNghiem.Location = new Point(32, 258);
-            lblNghiem.Name = "lblNghiem";
-            lblNghiem.Size = new Size(217, 21);
-            lblNghiem.TabIndex = 9;
-            lblNghiem.Text = "Nghiệm của phương trình: ";
-            lblNghiem.MouseClick += txtBa_MouseClick;
+            chThanhtien.Text = "Thành tiền";
+            chThanhtien.TextAlign = HorizontalAlignment.Center;
+            chThanhtien.Width = 308;
+            // 
+            // lbGia
+            // 
+            lbGia.AutoSize = true;
+            lbGia.Location = new Point(843, 65);
+            lbGia.Name = "lbGia";
+            lbGia.Size = new Size(118, 25);
+            lbGia.TabIndex = 3;
+            lbGia.Text = "Giá: 5k/tiếng";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(780, 455);
-            Controls.Add(lblNghiem);
-            Controls.Add(lblTitle);
-            Controls.Add(btnXoa);
-            Controls.Add(btnGiai);
-            Controls.Add(txtBc);
-            Controls.Add(txtBb);
-            Controls.Add(txtBa);
-            Controls.Add(lblc);
-            Controls.Add(lblb);
-            Controls.Add(lbla);
+            ClientSize = new Size(984, 681);
+            Controls.Add(lbGia);
+            Controls.Add(gbDanhSachMay);
+            Controls.Add(gbChucNang);
+            Controls.Add(label1);
+            Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Margin = new Padding(5);
             Name = "Form1";
-            Text = "Giải phương trình bậc 2";
-            MouseClick += txtBa_MouseClick;
-            ctxtMenuEdit.ResumeLayout(false);
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Quản lý quán";
+            gbChucNang.ResumeLayout(false);
+            gbDanhSachMay.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label lbla;
-        private Label lblb;
-        private Label lblc;
-        private TextBox txtBa;
-        private TextBox txtBb;
-        private TextBox txtBc;
-        private Button btnGiai;
-        private Button btnXoa;
-        private Label lblTitle;
-        private ContextMenuStrip ctxtMenuEdit;
-        private ToolStripMenuItem tsmDoiMau;
-        private ToolStripMenuItem tsmDoiFont;
-        private Label lblNghiem;
+        private Label label1;
+        private GroupBox gbChucNang;
+        private GroupBox gbDanhSachMay;
+        private ListView lvDanhsachMay;
+        private ColumnHeader chSomay;
+        private ColumnHeader chTrangthai;
+        private ColumnHeader chBatDau;
+        private ColumnHeader chSuDung;
+        private Button btnDatMay;
+        private Button btnThoat;
+        private Button btnTraMay;
+        private Button btnLamMoi;
+        private ColumnHeader chThanhtien;
+        private Label lbGia;
     }
 }

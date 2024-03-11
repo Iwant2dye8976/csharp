@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System;
+using System.Windows.Forms.VisualStyles;
 
 namespace Bai5
 {
@@ -7,109 +8,116 @@ namespace Bai5
         public Form1()
         {
             InitializeComponent();
-        }
-
-        enum KieuNghiem
-        {
-            HaiNghiemPhanBiet,
-            NghiemKep,
-            VoNghiem
-        }
-
-        static string KieuNghiemPT(double a, double b, double c)
-        {
-            double delta = Math.Pow(b, 2) - 4 * a * c;
-            if (delta >= 0)
+            // Tạo danh sách 20 máy
+            for (int i = 0; i < 20; i++)
             {
-                if (delta == 0)
-                    return KieuNghiem.NghiemKep.ToString();
-                else
-                    return KieuNghiem.HaiNghiemPhanBiet.ToString();
+                // Tạo items cho listview
+                ListViewItem item = new ListViewItem((i + 1).ToString());
+
+                // Khởi tạo dữ liệu cho các cột
+                item.SubItems.Add("Offline");
+                item.SubItems.Add("None");
+                item.SubItems.Add("0");
+                item.SubItems.Add("0");
+
+                // Thêm item vào các hàng trong listview
+                lvDanhsachMay.Items.Add(item);
             }
-            else
-                return KieuNghiem.VoNghiem.ToString();
         }
-        private void btnGiai_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                lblNghiem.Text = "Nghiệm của phương trình: ";
-                double a = Convert.ToDouble(txtBa.Text);
-                double b = Convert.ToDouble(txtBb.Text);
-                double c = Convert.ToDouble(txtBc.Text);
-                string Type = KieuNghiemPT(a, b, c);
 
-                if (Type != "VoNghiem" && a != 0)
+        private DateTime[] dateTimes = new DateTime[20];
+        private bool[] notOccupied = Enumerable.Repeat(true, 20).ToArray();
+        private void btnDatMay_Click(object sender, EventArgs e)
+        {
+            if (lvDanhsachMay.SelectedItems.Count > 0)
+            {
+                int sl = lvDanhsachMay.SelectedItems.Count;
+                int index2 = lvDanhsachMay.SelectedItems[0].Index;
+                while (sl > 0)
                 {
-                    double x1 = 0;
-                    double x2 = 0;
-                    double delta = Math.Pow(b, 2) - 4 * a * c;
-                    if (Type == "HaiNghiemPhanBiet")
+                    if (notOccupied[index2])
                     {
-                        x1 = -b + Math.Sqrt(delta) / (2 * a);
-                        x2 = -b - Math.Sqrt(delta) / (2 * a);
-                        lblNghiem.Text += $"x1 = {x1}; x2 = {x2}";
+                        if (lvDanhsachMay.Items[index2].SubItems[1].Text == "Offline")
+                        {
+                            lvDanhsachMay.Items[index2].SubItems[1].Text = "Online";
+                            lvDanhsachMay.Items[index2].SubItems[2].Text = $"{DateTime.Now.ToShortTimeString()} {DateTime.Now.ToShortDateString()}";
+                            dateTimes[index2] = DateTime.Now;
+                            notOccupied[index2] = false;
+                        }
+                        index2++;
+                        sl--;
                     }
                     else
                     {
-                        x1 = x2 = -b / (2 * a);
-                        lblNghiem.Text += $"x1 = x2 = {x1}";
+                        MessageBox.Show("Máy đã được cho thuê");
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chọn một máy để đặt");
+            }
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            for (int i = 19; i >= 0; i--)
+            {
+                if (lvDanhsachMay.Items[i].SubItems[1].Text == "Online")
+                {
+                    int totalMinutes = (int)(DateTime.Now - dateTimes[i]).TotalMinutes;
+                    lvDanhsachMay.Items[i].SubItems[3].Text = $"{totalMinutes}";
+                    int thanhTien = 5000 * (totalMinutes / 60);
+                    lvDanhsachMay.Items[i].SubItems[4].Text = $"{thanhTien}";
+                }
+            }
+        }
+
+        private void btnTraMay_Click(object sender, EventArgs e)
+        {
+            if (lvDanhsachMay.SelectedItems.Count == 1)
+            {
+                int selectedIndex = lvDanhsachMay.SelectedItems[0].Index;
+
+                if (selectedIndex >= 0 && selectedIndex < dateTimes.Length)
+                {
+                    if (lvDanhsachMay.SelectedItems[0].SubItems[1].Text == "Online")
+                    {
+                        int totalMinutes = (int)(DateTime.Now - dateTimes[selectedIndex]).TotalMinutes;
+                        int thanhTien = 5000 * (totalMinutes / 60);
+
+                        DialogResult result = MessageBox.Show($"Tổng: {thanhTien}VND", "Bạn có muốn xác nhận trả máy", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                        if (result == DialogResult.OK)
+                        {
+                            lvDanhsachMay.Items[selectedIndex].SubItems[1].Text = "Offline";
+                            lvDanhsachMay.Items[selectedIndex].SubItems[2].Text = "None";
+                            lvDanhsachMay.Items[selectedIndex].SubItems[3].Text = "0";
+                            lvDanhsachMay.Items[selectedIndex].SubItems[4].Text = "0";
+                            notOccupied[selectedIndex] = true;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Máy đang Offline");
                     }
                 }
                 else
                 {
-                    lblNghiem.Text += "Vô nghiệm";
+                    MessageBox.Show("Index out of range");
                 }
             }
-            catch (FormatException)
+            else
             {
-                MessageBox.Show("Lỗi: Nhập không đúng định dạng số");
+                MessageBox.Show("Chỉ được trả tối đa một máy mỗi lần");
             }
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
+        private void btnThoat_Click(object sender, EventArgs e)
         {
-            txtBa.Clear();
-            txtBb.Clear();
-            txtBc.Clear();
-            txtBa.Focus();
-        }
-        private Control clickedControl;
-        private void txtBa_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-                clickedControl = (Control)sender;
-                ctxtMenuEdit.Show((Control)sender, e.Location);
-            }
-        }
-
-        public void ctxtMenuEdit_Opening(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-        }
-
-        private void tsmDoiMau_Click(object sender, EventArgs e)
-        {
-            if(clickedControl != null)
-            {
-                ColorDialog colorDialog = new ColorDialog();
-                if (colorDialog.ShowDialog() == DialogResult.OK)
-                {
-                    clickedControl.BackColor = colorDialog.Color;
-                }
-            }
-        }
-
-        private void tsmDoiFont_Click(object sender, EventArgs e)
-        {
-            if(clickedControl != null)
-            {
-                FontDialog fontDialog = new FontDialog();
-                if (fontDialog.ShowDialog() == DialogResult.OK)
-                {
-                    clickedControl.Font = fontDialog.Font;
-                }
-            }
+            // Thoát chương trình
+            Environment.Exit(0);
         }
     }
 }

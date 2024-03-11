@@ -10,7 +10,7 @@ namespace Bai7
         string operationPerformed = string.Empty;
         private void btn_Click(object sender, EventArgs e)
         {
-            if(txtbOutput.Text == "0" || entervalue)
+            if(txtbOutput.Text == "0")
             {
                 txtbOutput.Text = string.Empty;
             }

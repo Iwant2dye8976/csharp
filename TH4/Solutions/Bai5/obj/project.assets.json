@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C#\\TH4\\Solutions\\Bai5\\Bai6.csproj",
-      "projectName": "Bai6",
-      "projectPath": "D:\\C#\\TH4\\Solutions\\Bai5\\Bai6.csproj",
+      "projectUniqueName": "D:\\C#\\TH4\\Solutions\\Bai5\\Bai5.csproj",
+      "projectName": "Bai5",
+      "projectPath": "D:\\C#\\TH4\\Solutions\\Bai5\\Bai5.csproj",
       "packagesPath": "C:\\Users\\xuanb\\.nuget\\packages\\",
       "outputPath": "D:\\C#\\TH4\\Solutions\\Bai5\\obj\\",
       "projectStyle": "PackageReference",
