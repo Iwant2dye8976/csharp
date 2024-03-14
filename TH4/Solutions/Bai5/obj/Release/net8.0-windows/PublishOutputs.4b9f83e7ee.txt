@@ -1,0 +1,5 @@
+D:\C#\TH4\Builds\Bai5\Bai5.exe
+D:\C#\TH4\Builds\Bai5\Bai5.dll
+D:\C#\TH4\Builds\Bai5\Bai5.deps.json
+D:\C#\TH4\Builds\Bai5\Bai5.runtimeconfig.json
+D:\C#\TH4\Builds\Bai5\Bai5.pdb

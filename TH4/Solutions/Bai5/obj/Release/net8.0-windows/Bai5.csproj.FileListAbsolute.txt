@@ -1,0 +1,17 @@
+D:\C#\TH4\Solutions\Bai5\bin\Release\net8.0-windows\Bai5.exe
+D:\C#\TH4\Solutions\Bai5\bin\Release\net8.0-windows\Bai5.deps.json
+D:\C#\TH4\Solutions\Bai5\bin\Release\net8.0-windows\Bai5.runtimeconfig.json
+D:\C#\TH4\Solutions\Bai5\bin\Release\net8.0-windows\Bai5.dll
+D:\C#\TH4\Solutions\Bai5\bin\Release\net8.0-windows\Bai5.pdb
+D:\C#\TH4\Solutions\Bai5\obj\Release\net8.0-windows\Bai5.Form1.resources
+D:\C#\TH4\Solutions\Bai5\obj\Release\net8.0-windows\Bai5.csproj.GenerateResource.cache
+D:\C#\TH4\Solutions\Bai5\obj\Release\net8.0-windows\Bai5.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\TH4\Solutions\Bai5\obj\Release\net8.0-windows\Bai5.AssemblyInfoInputs.cache
+D:\C#\TH4\Solutions\Bai5\obj\Release\net8.0-windows\Bai5.AssemblyInfo.cs
+D:\C#\TH4\Solutions\Bai5\obj\Release\net8.0-windows\Bai5.csproj.CoreCompileInputs.cache
+D:\C#\TH4\Solutions\Bai5\obj\Release\net8.0-windows\Bai5.sourcelink.json
+D:\C#\TH4\Solutions\Bai5\obj\Release\net8.0-windows\Bai5.dll
+D:\C#\TH4\Solutions\Bai5\obj\Release\net8.0-windows\refint\Bai5.dll
+D:\C#\TH4\Solutions\Bai5\obj\Release\net8.0-windows\Bai5.pdb
+D:\C#\TH4\Solutions\Bai5\obj\Release\net8.0-windows\Bai5.genruntimeconfig.cache
+D:\C#\TH4\Solutions\Bai5\obj\Release\net8.0-windows\ref\Bai5.dll
