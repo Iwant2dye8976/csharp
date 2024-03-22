@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C#\\TH4\\Solutions\\Bai5\\Bai6.csproj": {}
+    "D:\\C#\\TH4\\Solutions\\Bai6\\Bai6.csproj": {}
   },
   "projects": {
-    "D:\\C#\\TH4\\Solutions\\Bai5\\Bai6.csproj": {
+    "D:\\C#\\TH4\\Solutions\\Bai6\\Bai6.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#\\TH4\\Solutions\\Bai5\\Bai6.csproj",
+        "projectUniqueName": "D:\\C#\\TH4\\Solutions\\Bai6\\Bai6.csproj",
         "projectName": "Bai6",
-        "projectPath": "D:\\C#\\TH4\\Solutions\\Bai5\\Bai6.csproj",
+        "projectPath": "D:\\C#\\TH4\\Solutions\\Bai6\\Bai6.csproj",
         "packagesPath": "C:\\Users\\xuanb\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\TH4\\Solutions\\Bai5\\obj\\",
+        "outputPath": "D:\\C#\\TH4\\Solutions\\Bai6\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\xuanb\\AppData\\Roaming\\NuGet\\NuGet.Config",

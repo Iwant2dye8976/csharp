@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C#\\TH4\\Solutions\\Bai3\\Bai3\\Bai3.csproj",
+      "projectUniqueName": "D:\\C#\\TH4\\Solutions\\Bai3\\Bai3.csproj",
       "projectName": "Bai3",
-      "projectPath": "D:\\C#\\TH4\\Solutions\\Bai3\\Bai3\\Bai3.csproj",
+      "projectPath": "D:\\C#\\TH4\\Solutions\\Bai3\\Bai3.csproj",
       "packagesPath": "C:\\Users\\xuanb\\.nuget\\packages\\",
-      "outputPath": "D:\\C#\\TH4\\Solutions\\Bai3\\Bai3\\obj\\",
+      "outputPath": "D:\\C#\\TH4\\Solutions\\Bai3\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\xuanb\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -149,7 +149,6 @@
             ctxtMenuEdit.Items.AddRange(new ToolStripItem[] { tsmDoiMau, tsmDoiFont });
             ctxtMenuEdit.Name = "ctxtMenuEdit";
             ctxtMenuEdit.Size = new Size(120, 48);
-            ctxtMenuEdit.Opening += ctxtMenuEdit_Opening;
             // 
             // tsmDoiMau
             // 

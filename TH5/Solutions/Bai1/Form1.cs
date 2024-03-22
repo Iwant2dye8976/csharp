@@ -14,6 +14,7 @@ namespace Bai1
 {
     public partial class Form1 : Form
     {
+        //Chuỗi kết nối CSDL
         string connectionString = @"Data Source=DESKTOP-NN2JUAV\SQLEXPRESS;Initial Catalog=QLSACH;Integrated Security=True";
         SqlConnection conn;
         SqlCommand cmd;
@@ -29,6 +30,10 @@ namespace Bai1
         //Sach
         SqlDataAdapter daSach;
         DataTable dtSach;
+        //Ban Hang
+        SqlDataAdapter daBanHang;
+        DataTable dtBanHang;
+        //Chỉ mục khi chọn vào datagrid view
         int index = -1;
         public Form1()
         {
@@ -63,8 +68,15 @@ namespace Bai1
             dtSach = new DataTable();
             daSach.Fill(dtSach);
             dgSach.DataSource = dtSach;
+            //Đổ dữ liệu vào bảng Bán Hàng
+            string ttBanHang = "select HD.MaHD,HD.TenKhach,HD.SDT,ChitietHD.MaSach,ChitietHD.Soluong,ChitietHD.Giaban,HD.Tongtien from HD inner join ChitietHD on HD.MaHD = ChitietHD.MaHD";
+            daBanHang = new SqlDataAdapter(ttBanHang, conn);
+            dtBanHang = new DataTable();
+            daBanHang.Fill(dtBanHang);
+            dgBanHang.DataSource = dtBanHang;
         }
 
+        //Bắt sự kiện cho Tab control NXB
         private void btnThem_Click(object sender, EventArgs e)
         {
             string maNXB = tbMaNXB.Text.ToString();
@@ -78,14 +90,14 @@ namespace Bai1
                     string add = $"Insert into NXB values({maNXB},N'{tenNXB}')";
                     cmd = new SqlCommand(add, conn);
                     cmd.ExecuteNonQuery();
+                    MessageBox.Show("Thêm thành công");
                     dtNXB.Rows.Clear();
                     daNXB.Fill(dtNXB);
                 }
-                catch (SqlException)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Nhà xuất bản đã có trong danh sách");
+                    MessageBox.Show("Lỗi: "+ex.ToString());
                 }
-
             }
         }
         private void dgNXB_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -93,8 +105,8 @@ namespace Bai1
             index = e.RowIndex;
             if(index >= 0)
             {
-                tbMaNXB.Text = dtNXB.Rows[index][0].ToString();
-                tbTenNXB.Text = dtNXB.Rows[index][1].ToString();
+                tbMaNXB.Text = dtNXB.Rows[index][0].ToString().Trim();
+                tbTenNXB.Text = dtNXB.Rows[index][1].ToString().Trim();
             }
         }
         private void btnSua_Click(object sender, EventArgs e)
@@ -108,6 +120,7 @@ namespace Bai1
                     string update = $"Update NXB set TenNXB = N'{newTenNXB}' where MaNXB = '{MaNXB}'";
                     cmd = new SqlCommand(update, conn);
                     cmd.ExecuteNonQuery();
+                    MessageBox.Show("Sửa thành công");
                     dtNXB.Rows.Clear();
                     daNXB.Fill(dtNXB);
                 }
@@ -132,22 +145,23 @@ namespace Bai1
                     tbMaNXB.Clear();
                     tbTenNXB.Clear();
                 }
-                catch (SqlException)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi");
+                    MessageBox.Show("Lỗi: "+ex.ToString());
                 }
             }
             else
                 MessageBox.Show("Bạn phải chọn một hàng để xóa");
 
         }
+        //Bắt sự kiện cho Tab control Loại Sách
         private void dgLoaiSach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             index = e.RowIndex;
             if(index >= 0)
             {
-                tbMaLoaisach.Text = dtLoaiSach.Rows[index][0].ToString();
-                tbTenLoaisach.Text = dtLoaiSach.Rows[index][1].ToString();
+                tbMaLoaisach.Text = dtLoaiSach.Rows[index][0].ToString().Trim();
+                tbTenLoaisach.Text = dtLoaiSach.Rows[index][1].ToString().Trim();
             }
         }
         private void btThemLoaisach_Click(object sender, EventArgs e)
@@ -159,12 +173,13 @@ namespace Bai1
                 string them = $"Insert into LOAISACH values({newMaLoai},N'{newTenLoai}')";
                 cmd = new SqlCommand(them, conn);
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Thêm thành công");
                 dtLoaiSach.Rows.Clear();
                 daLoaiSach.Fill(dtLoaiSach);
             }
-            catch (SqlException)
+            catch (Exception ex)
             {
-                MessageBox.Show("Mã sách đã tồn tại");
+                MessageBox.Show("Lỗi: "+ex.ToString());
             }
         }
         private void btSuaLoaisach_Click(object sender, EventArgs e)
@@ -178,6 +193,7 @@ namespace Bai1
                     string update = $"Update LOAISACH set TenLoai = N'{newTenLoai}' where MaLoai = '{MaLoai}'";
                     cmd = new SqlCommand(update, conn);
                     cmd.ExecuteNonQuery();
+                    MessageBox.Show("Sửa thành công");
                     dtLoaiSach.Rows.Clear();
                     daLoaiSach.Fill(dtLoaiSach);
                 }
@@ -195,27 +211,29 @@ namespace Bai1
                     string delete = $"Delete LOAISACH where MaLoai = '{MaLoai}'";
                     cmd = new SqlCommand(delete, conn);
                     cmd.ExecuteNonQuery();
+                    MessageBox.Show("Xóa thành công");
                     dtLoaiSach.Rows.Clear();
                     daLoaiSach.Fill(dtLoaiSach);
                     index = -1;
                     tbMaLoaisach.Clear();
                     tbTenLoaisach.Clear();
                 }
-                catch (SqlException)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi");
+                    MessageBox.Show("Lỗi: "+ex.ToString());
                 }
             }
             else MessageBox.Show("Bạn phải chọn một hàng để xóa");
         }
 
+        //Bắt sự kiện cho Tab control Tác giả
         private void dgTacgia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             index = e.RowIndex;
             if(index >= 0)
             {
-                tbMaTacgia.Text = dtTacgia.Rows[index][0].ToString();
-                tbTenTacgia.Text = dtTacgia.Rows[index][1].ToString();
+                tbMaTacgia.Text = dtTacgia.Rows[index][0].ToString().Trim();
+                tbTenTacgia.Text = dtTacgia.Rows[index][1].ToString().Trim();
             }
         }
         private void btnThemTacgia_Click(object sender, EventArgs e)
@@ -233,13 +251,14 @@ namespace Bai1
                     string them = $"Insert into Tacgia values({newMaTacgia},N'{newTenTacgia}')";
                     cmd = new SqlCommand(them, conn);
                     cmd.ExecuteNonQuery();
+                    MessageBox.Show("Thêm thành công");
                     dtTacgia.Rows.Clear();
                     daTacgia.Fill(dtTacgia);
                 }
             }
-            catch (SqlException)
+            catch (Exception ex)
             {
-                MessageBox.Show("Mã tác giả đã tồn tại");
+                MessageBox.Show("Lỗi: "+ex.ToString());
             }
         }
         private void btnSuatacgia_Click(object sender, EventArgs e)
@@ -253,6 +272,7 @@ namespace Bai1
                     string update = $"Update Tacgia set TenTG = N'{newTenTacgia}' where MaTG = '{MaTacgia}'";
                     cmd = new SqlCommand(update, conn);
                     cmd.ExecuteNonQuery();
+                    MessageBox.Show("Sửa thành công");
                     dtTacgia.Rows.Clear();
                     daTacgia.Fill(dtTacgia);
                 }
@@ -271,13 +291,14 @@ namespace Bai1
                     string delete = $"Delete Tacgia where MaTG = '{MaTacgia}'";
                     cmd = new SqlCommand(delete, conn);
                     cmd.ExecuteNonQuery();
+                    MessageBox.Show("Xóa thành công");
                     dtTacgia.Rows.Clear();
                     daTacgia.Fill(dtTacgia);
                     index = -1;
                     tbMaTacgia.Clear();
                     tbTenTacgia.Clear();
                 }
-                catch (SqlException ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi"+ex.ToString());
                 }
@@ -285,16 +306,17 @@ namespace Bai1
             else MessageBox.Show("Bạn phải chọn một hàng để xóa");
         }
 
+        //Bắt sự kiện cho Tab control Sách
         private void dgSach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             index = e.RowIndex;
             if(index >= 0)
             {
-                tbMaSach.Text = dtSach.Rows[index][0].ToString();
-                tbMaloai1.Text = dtSach.Rows[index][1].ToString();
-                tbMatacgia1.Text = dtSach.Rows[index][2].ToString();
-                tbMaNXB1.Text = dtSach.Rows[index][3].ToString();
-                tbTensach.Text = dtSach.Rows[index][4].ToString();
+                tbMaSach.Text = dtSach.Rows[index][0].ToString().Trim();
+                tbMaloai1.Text = dtSach.Rows[index][1].ToString().Trim();
+                tbMatacgia1.Text = dtSach.Rows[index][2].ToString().Trim();
+                tbMaNXB1.Text = dtSach.Rows[index][3].ToString().Trim();
+                tbTensach.Text = dtSach.Rows[index][4].ToString().Trim();
                 tbDongia.Text = dtSach.Rows[index][5].ToString();
                 tbSoluong.Text = dtSach.Rows[index][6].ToString();
             }
@@ -309,12 +331,12 @@ namespace Bai1
                 string newMatacgia = tbMatacgia1.Text.Trim();
                 string newMaNXB = tbMaNXB1.Text.Trim();
                 string newTensach = tbTensach.Text.Trim();
-                int newDongia, newSoluong;
+                int newDongia = int.Parse(tbDongia.Text);
+                int newSoluong = int.Parse(tbSoluong.Text);
 
                 if (string.IsNullOrEmpty(newMaSach) || string.IsNullOrEmpty(newMaLoai) ||
                 string.IsNullOrEmpty(newMatacgia) || string.IsNullOrEmpty(newMaNXB) ||
-                string.IsNullOrEmpty(newTensach) || !int.TryParse(tbDongia.Text.Trim(), out newDongia) ||
-            !   int.TryParse(tbSoluong.Text.Trim(), out newSoluong) || newDongia <= 0 || newSoluong <= 0)
+                string.IsNullOrEmpty(newTensach) || newDongia <= 0 || newSoluong <= 0)
                 {
                     MessageBox.Show("Hãy nhập đủ thông tin sách và đảm bảo giá và số lượng là số nguyên dương.");
                 }
@@ -323,24 +345,252 @@ namespace Bai1
                     string add = $"Insert into SACH values({newMaSach},{newMaLoai},{newMatacgia},{newMaNXB},N'{newTensach}',{newDongia},{newSoluong})";
                     cmd = new SqlCommand(add, conn);
                     cmd.ExecuteNonQuery();
+                    MessageBox.Show("Thêm thành công");
                     dtSach.Rows.Clear();
                     daSach.Fill(dtSach);
                 }
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Lỗi: "+ex.ToString());
             }
         }
 
         private void btnXoasach_Click(object sender, EventArgs e)
         {
-
+            if(index >= 0)
+            {
+                try
+                {
+                    string MaSach = dtSach.Rows[index][0].ToString();
+                    string delete = $"Delete SACH where MaSach = {MaSach}";
+                    cmd = new SqlCommand(delete, conn);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Xóa thành công");
+                    dtSach.Clear();
+                    daSach.Fill(dtSach);
+                    index = -1;
+                    tbDongia.Clear();
+                    tbMaSach.Clear();
+                    tbSoluong.Clear();
+                    tbMatacgia1.Clear();
+                    tbMaNXB1.Clear();
+                    tbMaloai1.Clear();
+                    tbTensach.Clear();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Hãy chọn một trường để xóa");
+            }
         }
 
         private void btnSuasach_Click(object sender, EventArgs e)
         {
+            if (index >= 0)
+            {
+                try
+                {
+                    string MaSach = dtSach.Rows[index][0].ToString();
+                    string newMaLoai = tbMaloai1.Text.Trim();
+                    string newMatacgia = tbMatacgia1.Text.Trim();
+                    string newMaNXB = tbMaNXB1.Text.Trim();
+                    string newTensach = tbTensach.Text.Trim();
+                    int newDongia = int.Parse(tbDongia.Text);
+                    int newSoluong = int.Parse(tbSoluong.Text);
 
+                    if (string.IsNullOrEmpty(newMaLoai) || string.IsNullOrEmpty(newMatacgia) || string.IsNullOrEmpty(newMaNXB) ||
+                    string.IsNullOrEmpty(newTensach) || newDongia <= 0 || newSoluong <= 0)
+                    {
+                        MessageBox.Show("Hãy nhập đủ thông tin sách và đảm bảo giá và số lượng là số nguyên dương.");
+                    }
+                    else
+                    {
+                        string update = $"Update SACH set MaLoai = {newMaLoai}, MaTG = {newMatacgia}, MaNXB = {newMaNXB}, TenSach = N'{newTensach}', Dongia = {newDongia}, Soluong = {newSoluong} where MaSach = {MaSach}";
+                        cmd = new SqlCommand(update, conn);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Sửa thành công");
+                        dtSach.Rows.Clear();
+                        daSach.Fill(dtSach);
+                        index = -1;
+                        tbDongia.Clear();
+                        tbMaSach.Clear();
+                        tbSoluong.Clear();
+                        tbMatacgia1.Clear();
+                        tbMaNXB1.Clear();
+                        tbMaloai1.Clear();
+                        tbTensach.Clear();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.ToString());
+                }
+            }
+            else MessageBox.Show("Phải chọn một trường để sửa");
+        }
+
+        //Bắt sự kiện cho Tab control Bán hàng
+        private void dgBanHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            index = e.RowIndex;
+            if(index >= 0)
+            {
+                tbMaHD_BH.Text = dtBanHang.Rows[index][0].ToString().Trim();
+                tbTenKhach_BH.Text = dtBanHang.Rows[index][1].ToString().Trim();
+                tbSDT_BH.Text = dtBanHang.Rows[index][2].ToString().Trim();
+                tbMaSach_BH.Text = dtBanHang.Rows[index][3].ToString().Trim();
+                tbSoluong_BH.Text = dtBanHang.Rows[index][4].ToString();
+                tbGiaban_BH.Text = dtBanHang.Rows[index][5].ToString();
+                tbTongtien_BH.Text = (int.Parse(tbSoluong_BH.Text.ToString()) * int.Parse(tbGiaban_BH.Text.ToString())).ToString();
+            }
+        }
+
+        private int TongTien = 0;
+        private int newSoluong = 0;
+        private int newGiaban = 0;
+
+        private void tbSoluong_BH_Textchanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(tbSoluong_BH.Text) >= 0)
+                {
+                    newSoluong = Convert.ToInt32(tbSoluong_BH.Text);
+                    TongTien = newGiaban * newSoluong;
+                    tbTongtien_BH.Text = TongTien.ToString();
+                }
+            }
+            catch (FormatException) { }
+        }
+
+        private void tbGiaban_BH_Textchanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(tbGiaban_BH.Text) >= 0)
+                {
+                    newGiaban = Convert.ToInt32(tbGiaban_BH.Text);
+                    TongTien = newGiaban * newSoluong;
+                    tbTongtien_BH.Text = TongTien.ToString();
+                }
+            }
+            catch (FormatException){ }
+        }
+        private void btnThem_BH_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string newMaHD = tbMaHD_BH.Text.Trim();
+                string newTenKhach = tbTenKhach_BH.Text.Trim();
+                string newSDT = tbSDT_BH.Text.Trim();
+                string newMaSach = tbMaHD_BH.Text.Trim();
+                //int newSoluong = int.Parse(tbSoluong_BH.Text.Trim());
+                //int newGiaban = int.Parse(tbGiaban_BH.Text.Trim());
+                int newTongtien = Convert.ToInt32(tbTongtien_BH.Text);
+                if (string.IsNullOrWhiteSpace(newMaHD) || string.IsNullOrWhiteSpace(newTenKhach) || string.IsNullOrWhiteSpace(newSDT)
+                    || string.IsNullOrWhiteSpace(newMaSach) || newSoluong <= 0 || newGiaban <= 0)
+                    MessageBox.Show("Hãy nhập đủ thông tin và đảm bảo giá và số lượng là số nguyên dương.");
+                else
+                {
+                    string add_HD = $"Insert into HD values({newMaHD},N'{newTenKhach}',{newSDT},{TongTien})";
+                    string add_ChitietHD = $"Insert into ChitietHD values({newMaHD},{newMaSach},{newSoluong},{newGiaban})";
+                    cmd = new SqlCommand(add_HD, conn);
+                    cmd.ExecuteNonQuery();
+                    cmd = new SqlCommand(add_ChitietHD, conn);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Thêm hóa đơn thành công");
+                    dtBanHang.Rows.Clear();
+                    daBanHang.Fill(dtBanHang);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.ToString());
+            }
+        }
+
+        private void btnXoa_BH_Click(object sender, EventArgs e)
+        {
+            if(index >= 0)
+            {
+                try
+                {
+                    string MaHD = dtBanHang.Rows[index][0].ToString();
+                    string delete = $"Delete ChitietHD where MaHD = {MaHD}";
+                    string delete1 = $"Delete HD where MaHD = {MaHD}";
+                    cmd = new SqlCommand(delete, conn);
+                    cmd.ExecuteNonQuery();
+                    cmd = new SqlCommand(delete1,conn);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Xóa thành công");
+                    tbMaHD_BH.Clear();
+                    tbTenKhach_BH.Clear();
+                    tbSDT_BH.Clear();
+                    tbMaSach_BH.Clear();
+                    tbSoluong_BH.Clear();
+                    tbGiaban_BH.Clear();
+                    tbTongtien_BH.Clear();
+                    dtBanHang.Rows.Clear();
+                    daBanHang.Fill(dtBanHang);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.ToString());
+                }
+            }
+            else { MessageBox.Show("Chọn một trường để xóa"); }
+        }
+
+        private void btnSua_HD_Click(object sender, EventArgs e)
+        {
+            if (index >= 0)
+            {
+                try
+                {
+                    string MaHD = dtBanHang.Rows[index][0].ToString();
+                    string newTenkhach = tbTenKhach_BH.Text.Trim();
+                    string newSdt = tbSDT_BH.Text.Trim();
+                    string newMaSach = tbMaSach_BH.Text.Trim();
+                    int newSoluong = int.Parse(tbSoluong_BH.Text.Trim());
+                    int newGiaban = int.Parse(tbGiaban_BH.Text.Trim());
+                    int TongTien = int.Parse(tbTongtien_BH.Text.Trim());
+                    if (string.IsNullOrEmpty(newTenkhach) || string.IsNullOrEmpty(newSdt) || string.IsNullOrEmpty(newMaSach) ||
+                    string.IsNullOrEmpty(newMaSach) || newSoluong <= 0 || newGiaban <= 0)
+                    {
+                        MessageBox.Show("Hãy nhập đủ thông tin sách và đảm bảo giá và số lượng là số nguyên dương.");
+                    }
+                    else
+                    {
+                        string update = $"Update HD set TenKhach = N'{newTenkhach}',SDT = {newSdt}, Tongtien = {TongTien} where MaHD = {MaHD}";
+                        string update1 = $"Update ChitietHD set MaSach = {newMaSach}, SoLuong = {newSoluong}, Giaban = {newGiaban} where MaHD = {MaHD}";
+                        cmd = new SqlCommand(update, conn);
+                        cmd.ExecuteNonQuery();
+                        cmd = new SqlCommand(update1, conn);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Sửa thành công");
+                        dtBanHang.Rows.Clear();
+                        daBanHang.Fill(dtBanHang);
+                        index = -1;
+                        tbMaHD_BH.Clear();
+                        tbTenKhach_BH.Clear();
+                        tbSDT_BH.Clear();
+                        tbMaSach_BH.Clear();
+                        tbSoluong_BH.Clear();
+                        tbGiaban_BH.Clear();
+                        tbTongtien_BH.Clear();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.ToString());
+                }
+            }
+            else MessageBox.Show("Phải chọn một trường để sửa");
         }
     }
 }

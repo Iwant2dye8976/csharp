@@ -84,13 +84,9 @@ namespace Bai5
             }
         }
 
-        public void ctxtMenuEdit_Opening(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-        }
-
         private void tsmDoiMau_Click(object sender, EventArgs e)
         {
-            if(clickedControl != null)
+            if (clickedControl != null)
             {
                 ColorDialog colorDialog = new ColorDialog();
                 if (colorDialog.ShowDialog() == DialogResult.OK)
@@ -102,7 +98,7 @@ namespace Bai5
 
         private void tsmDoiFont_Click(object sender, EventArgs e)
         {
-            if(clickedControl != null)
+            if (clickedControl != null)
             {
                 FontDialog fontDialog = new FontDialog();
                 if (fontDialog.ShowDialog() == DialogResult.OK)
@@ -111,5 +107,6 @@ namespace Bai5
                 }
             }
         }
+
     }
 }
