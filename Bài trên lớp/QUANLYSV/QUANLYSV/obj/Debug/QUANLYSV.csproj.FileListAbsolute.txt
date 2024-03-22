@@ -1,0 +1,9 @@
+C:\Users\Sinhvien\Desktop\QUANLYSV\QUANLYSV\bin\Debug\QUANLYSV.exe.config
+C:\Users\Sinhvien\Desktop\QUANLYSV\QUANLYSV\bin\Debug\QUANLYSV.exe
+C:\Users\Sinhvien\Desktop\QUANLYSV\QUANLYSV\bin\Debug\QUANLYSV.pdb
+C:\Users\Sinhvien\Desktop\QUANLYSV\QUANLYSV\obj\Debug\QUANLYSV.csprojResolveAssemblyReference.cache
+C:\Users\Sinhvien\Desktop\QUANLYSV\QUANLYSV\obj\Debug\QUANLYSV.Form1.resources
+C:\Users\Sinhvien\Desktop\QUANLYSV\QUANLYSV\obj\Debug\QUANLYSV.Properties.Resources.resources
+C:\Users\Sinhvien\Desktop\QUANLYSV\QUANLYSV\obj\Debug\QUANLYSV.csproj.GenerateResource.Cache
+C:\Users\Sinhvien\Desktop\QUANLYSV\QUANLYSV\obj\Debug\QUANLYSV.exe
+C:\Users\Sinhvien\Desktop\QUANLYSV\QUANLYSV\obj\Debug\QUANLYSV.pdb
