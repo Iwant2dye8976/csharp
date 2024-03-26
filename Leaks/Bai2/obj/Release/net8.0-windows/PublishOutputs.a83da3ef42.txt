@@ -1,0 +1,11 @@
+D:\C#\Leaks\Bai2\Demo\Bai2.exe
+D:\C#\Leaks\Bai2\Demo\Bai2.dll
+D:\C#\Leaks\Bai2\Demo\Bai2.deps.json
+D:\C#\Leaks\Bai2\Demo\Bai2.runtimeconfig.json
+D:\C#\Leaks\Bai2\Demo\Bai2.pdb
+D:\C#\Leaks\Bai2\Demo\System.Data.SqlClient.dll
+D:\C#\Leaks\Bai2\Demo\runtimes\win-arm64\native\sni.dll
+D:\C#\Leaks\Bai2\Demo\runtimes\win-x64\native\sni.dll
+D:\C#\Leaks\Bai2\Demo\runtimes\win-x86\native\sni.dll
+D:\C#\Leaks\Bai2\Demo\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\C#\Leaks\Bai2\Demo\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
