@@ -1,0 +1,11 @@
+D:\C#\PTTK_HT\PTTK_HT\bin\Debug\PTTK_HT.exe.config
+D:\C#\PTTK_HT\PTTK_HT\bin\Debug\PTTK_HT.exe
+D:\C#\PTTK_HT\PTTK_HT\bin\Debug\PTTK_HT.pdb
+D:\C#\PTTK_HT\PTTK_HT\obj\Debug\PTTK_HT.csproj.AssemblyReference.cache
+D:\C#\PTTK_HT\PTTK_HT\obj\Debug\PTTK_HT.F_DangNhap.resources
+D:\C#\PTTK_HT\PTTK_HT\obj\Debug\PTTK_HT.Properties.Resources.resources
+D:\C#\PTTK_HT\PTTK_HT\obj\Debug\PTTK_HT.csproj.GenerateResource.cache
+D:\C#\PTTK_HT\PTTK_HT\obj\Debug\PTTK_HT.csproj.CoreCompileInputs.cache
+D:\C#\PTTK_HT\PTTK_HT\obj\Debug\PTTK_HT.exe
+D:\C#\PTTK_HT\PTTK_HT\obj\Debug\PTTK_HT.pdb
+D:\C#\PTTK_HT\PTTK_HT\obj\Debug\PTTK_HT.F_QuanLyCuaHangSach.resources

@@ -1,5 +1,4 @@
 ﻿using System.Configuration;
-
 namespace Bai3
 {
     public partial class Form1 : Form

@@ -43,7 +43,9 @@ namespace Bai1
         private void Form1_Load(object sender, EventArgs e)
         {
             conn = new SqlConnection(connectionString);
-            conn.Open();
+            try
+            {
+
             //Đổ dữ liệu vào bảng loại sách
             string ttLoaiSach = "Select * from LoaiSach";
             daLoaiSach = new SqlDataAdapter(ttLoaiSach,conn);
@@ -74,6 +76,11 @@ namespace Bai1
             dtBanHang = new DataTable();
             daBanHang.Fill(dtBanHang);
             dgBanHang.DataSource = dtBanHang;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
         }
 
         //Bắt sự kiện cho Tab control NXB
