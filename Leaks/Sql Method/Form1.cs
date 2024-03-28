@@ -106,7 +106,7 @@ namespace Bai2
                     {
                         string MaSV = tbMaSV.Text.Trim();
                         string newTenSV = tbTenSV.Text.Trim();
-                        DateTime newNgaySinh = dtpNgaySinh.Value;
+                        DateTime newNgaySinh = dtpNgaySinh.Value.Date;
                         string newDiaChi = tbDiaChi.Text.Trim();
                         if (string.IsNullOrWhiteSpace(newTenSV) || string.IsNullOrWhiteSpace(newDiaChi))
                         {
@@ -174,6 +174,7 @@ namespace Bai2
 
         private void tbTimKiem_TextChanged(object sender, EventArgs e)
         {
+            
             string HoTen = tbTimKiem.Text.ToString();
             using(SqlConnection conn = new SqlConnection(connectionString))
             {

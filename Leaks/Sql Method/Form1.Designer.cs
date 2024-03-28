@@ -132,6 +132,7 @@
             // 
             dtpNgaySinh.Anchor = AnchorStyles.Top;
             dtpNgaySinh.CustomFormat = "";
+            dtpNgaySinh.Format = DateTimePickerFormat.Short;
             dtpNgaySinh.Location = new Point(232, 135);
             dtpNgaySinh.Name = "dtpNgaySinh";
             dtpNgaySinh.Size = new Size(351, 29);

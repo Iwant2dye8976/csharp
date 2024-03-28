@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nDmRuPH3MjgnP741GWSaofPjevFdihgiGKkho0AfOgjhABgH6xfzPdiUVMG79dmnDxbrr0Qn+cxRRa3yeu4LoA==",
+  "dgSpecHash": "Vf+EsHV/jytBCbRknQ9S4blx/MsS0jGeIf7MWfIpmjYdslAe2DhKpVG1Az/kd2hYRXUly7F5Nf2t/17Zcvi9MQ==",
   "success": true,
-  "projectFilePath": "D:\\C#\\Leaks\\Bai2\\Bai2.csproj",
+  "projectFilePath": "D:\\C#\\Leaks\\Sql Method\\Bai2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\xuanb\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\xuanb\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

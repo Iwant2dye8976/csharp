@@ -475,11 +475,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C#\\Leaks\\Bai2\\Bai2.csproj",
+      "projectUniqueName": "D:\\C#\\Leaks\\Sql Method\\Bai2.csproj",
       "projectName": "Bai2",
-      "projectPath": "D:\\C#\\Leaks\\Bai2\\Bai2.csproj",
+      "projectPath": "D:\\C#\\Leaks\\Sql Method\\Bai2.csproj",
       "packagesPath": "C:\\Users\\xuanb\\.nuget\\packages\\",
-      "outputPath": "D:\\C#\\Leaks\\Bai2\\obj\\",
+      "outputPath": "D:\\C#\\Leaks\\Sql Method\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\xuanb\\AppData\\Roaming\\NuGet\\NuGet.Config",
