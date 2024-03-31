@@ -24,7 +24,6 @@ namespace Bai1
             //dt.Columns.Add("Tên sinh viên");
             //dt.Columns.Add("Ngày sinh", typeof(DateTime));
             //dt.Columns.Add("Địa chỉ");
-            //dgSinhVien.DataSource = dt;
             Load_Data();
         }
         //Load dữ liệu từ file json
@@ -35,7 +34,7 @@ namespace Bai1
                 using (StreamReader sr = new StreamReader(path))
                 {
                     jsonstr = sr.ReadToEnd();
-                    if (!string.IsNullOrWhiteSpace(jsonstr))
+                    if (jsonstr != "null" && jsonstr != "[]")
                     {
                         dt = JsonConvert.DeserializeObject<DataTable>(jsonstr);
                     }
@@ -159,7 +158,7 @@ namespace Bai1
         //Bắt sự kiện đóng Form
         private void Form_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(!string.IsNullOrWhiteSpace(jsonstr))
+            if(!string.IsNullOrWhiteSpace(jsonstr) && jsonstr != "[]")
             {
                 SaveFile();
             }

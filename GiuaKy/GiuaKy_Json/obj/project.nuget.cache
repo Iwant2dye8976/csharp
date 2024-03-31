@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "pDZnsNDzpZ4aVcsoaVKYf9Uw0mKzLZfMibxDKKXD65Wo1NiCKmzrG9QzbJf52TOn6BXzfJ32HXdLJGComeQQDg==",
+  "success": true,
+  "projectFilePath": "D:\\C#\\GiuaKy\\GiuaKy_Json\\GiuaKy_Json.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\xuanb\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "K3kqRWoujNPJjYQnKe2BuB7x2mG6AMjNcZYfeCJFiMA9l6KSAZsDA1/XL2GcmdoF/JTNOUhbyJrhCwP0ef5MIw==",
+  "success": true,
+  "projectFilePath": "D:\\C#\\GiuaKy\\QLSACH_Json\\QLSACH_Json.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\xuanb\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
